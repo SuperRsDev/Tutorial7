@@ -1,10 +1,14 @@
+import java.util.Comparator;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Zadatak3 {
     public static void izvrsiZadatak() {
-        /*list.stream().sorted((o1, o2)->o1.getItem().getValue().
-                compareTo(o2.getItem().getValue())).
-                collect(Collectors.toList());*/
-
+        var brojevi = Zadatak2.unesiBrojeve();
+        Comparator<Integer> poSumiCifara =
+                Comparator.comparingInt(Zadatak2::sumaCifara);
+        List sortiraniBrojevi = brojevi.stream().sorted(poSumiCifara).
+                collect(Collectors.toList());
+        sortiraniBrojevi.stream().forEach(System.out::println);
     }
 }

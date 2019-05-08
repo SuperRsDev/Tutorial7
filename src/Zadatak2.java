@@ -11,9 +11,13 @@ public class Zadatak2 {
         Comparator<Integer> poSumiCifara =
                 Comparator.comparingInt(Zadatak2::sumaCifara);
         Arrays.sort(brojevi, poSumiCifara);
+        for (var broj :
+                brojevi) {
+            System.out.println(broj);
+        }
     }
 
-    private static ArrayList<Integer> unesiBrojeve() {
+    public static ArrayList<Integer> unesiBrojeve() {
         Scanner sc = new Scanner(System.in);
         ArrayList<Integer> brojevi = new ArrayList<>();
         do {
@@ -26,7 +30,7 @@ public class Zadatak2 {
         return brojevi;
     }
 
-    private static int sumaCifara(int broj) {
+    public static int sumaCifara(int broj) {
         int suma = 0;
         while (broj > 0) {
             suma = suma + broj % 10;
